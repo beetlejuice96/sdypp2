@@ -23,6 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c325ef7-0233-4946-a47f-57801e548027" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../punto3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../punto3/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../punto3/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../punto3/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../punto3/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../punto3/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../punto3/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../punto3/punto3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +45,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -44,6 +55,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectId" id="1iG2nW8kMw4NgWJRxzEfoRFt0bU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -54,7 +66,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../punto1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
@@ -67,17 +79,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -97,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1601428846402</updated>
       <workItem from="1601428848394" duration="6525000" />
+      <workItem from="1601519777427" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="primer commit del ejercicio 2">
       <created>1601434800728</created>
@@ -135,6 +137,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="primer commit del ejercicio 2" />
