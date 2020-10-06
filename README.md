@@ -1,2 +1,2 @@
 # ssydp2
-tps de distribuidas
+Trabajos practicos de Sistemas distribuidos y programacion paralela.
