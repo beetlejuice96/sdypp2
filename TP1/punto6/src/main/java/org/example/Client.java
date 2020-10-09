@@ -1,5 +1,7 @@
 package org.example;
 
+
+
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -28,6 +30,19 @@ public class Client {
             //System.out.println(mostrarv(v2,2));
 
             //llamoa la sima
+
+            //provoco el error intencional
+            //int[] v4= ri.ErrorIntencional(v1);
+            //System.out.println("error intencional en el vector 1: "+mostrarv(v4,4));
+
+            // provoco error intencional 2
+            System.out.println("PROVOCANDO ERROR 2");
+            Vector vector1 = new Vector();
+            vector1.setV(v1);
+            System.out.println("vector antes de provocar error: "+mostrarv(vector1.getV(), 1));
+            System.out.println("error intencional 2 en el vector 1: "+mostrarv(ri.errorIntencional2(vector1),1));
+
+
         } catch (RemoteException | NotBoundException e) {
             e.printStackTrace();
         }
