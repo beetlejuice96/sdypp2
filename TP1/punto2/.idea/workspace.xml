@@ -23,15 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c325ef7-0233-4946-a47f-57801e548027" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../punto3/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../punto3/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../punto3/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../punto3/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../punto3/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../punto3/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../punto3/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../punto3/punto3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../punto6/src/main/java/org/example/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../punto6/src/main/java/org/example/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../punto6/src/main/java/org/example/RemoteInt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../punto6/src/main/java/org/example/RemoteInt.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +93,8 @@
       <updated>1601428846402</updated>
       <workItem from="1601428848394" duration="6525000" />
       <workItem from="1601519777427" duration="480000" />
+      <workItem from="1602280636970" duration="119000" />
+      <workItem from="1602281212726" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="primer commit del ejercicio 2">
       <created>1601434800728</created>
@@ -148,10 +144,10 @@
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="527" y="105" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1294.741@72.27.1294.741" timestamp="1601431662712" />
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601432524651">
+    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602280752827">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1601432524651" />
+    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1602280752827" />
     <state width="1248" height="129" key="GridCell.Tab.0.bottom" timestamp="1601434836340">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
