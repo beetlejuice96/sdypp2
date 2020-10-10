@@ -8,5 +8,5 @@ public interface RemoteInt  extends Remote {
     public int[] restarVector(int[] v1,int[] v2) throws RemoteException;
     public int[] retornarVector(int[] v1) throws  RemoteException;
     public int[] ErrorIntencional(int[] v1) throws RemoteException;
-    public int[] errorIntencional2(Vector v) throws RemoteException;
+    public Vector errorIntencional2(Vector v) throws RemoteException;
 }

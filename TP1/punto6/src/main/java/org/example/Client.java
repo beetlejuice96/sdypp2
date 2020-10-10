@@ -39,8 +39,9 @@ public class Client {
             System.out.println("PROVOCANDO ERROR 2");
             Vector vector1 = new Vector();
             vector1.setV(v1);
+            Vector aux = ri.errorIntencional2(vector1);
             System.out.println("vector antes de provocar error: "+mostrarv(vector1.getV(), 1));
-            System.out.println("error intencional 2 en el vector 1: "+mostrarv(ri.errorIntencional2(vector1),1));
+            System.out.println("error intencional 2 en el vector 1: "+mostrarv(aux.getV(),1));
 
 
         } catch (RemoteException | NotBoundException e) {

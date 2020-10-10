@@ -40,13 +40,13 @@ public class ServerImp  implements RemoteInt{
     }
 
     @Override
-    public int[] errorIntencional2(Vector v) throws RemoteException {
-        int[] vaux= new int[v.getV().length];
+    public Vector errorIntencional2(Vector v) throws RemoteException {
+        //int[] vaux= new int[v.getV().length];
         for (int i = 0; i<v.getV().length;i++){
-            vaux[i]=v.getV()[i]+2;
+            //vaux[i]=v.getV()[i]+2;
             v.getV()[i]=0;
         }
 
-        return vaux;
+        return v;
     }
 }
