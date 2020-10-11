@@ -23,9 +23,11 @@ public class Server {
                 System.out.println("Cliente Aceptado : " + client.getInetAddress().getCanonicalHostName() + "Puerto : " + client.getPort()); //cliente devuelve su ip
                 BufferedReader input = new BufferedReader(new InputStreamReader( client.getInputStream()));
 
+
                 PrintWriter output = new PrintWriter( client.getOutputStream(),true ); //el true como lo especifica la ayuda de intellij es un autoflush.
 
                 output.println("el servidor manda mensaje al cliente");
+                System.out.println(input.readLine());
                 client.close();
 
             }
