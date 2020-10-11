@@ -21,7 +21,7 @@ public class ServerHilo implements Runnable{
             BufferedReader input = new BufferedReader(new InputStreamReader(this.cliente.getInputStream()));
             PrintStream output = new PrintStream(cliente.getOutputStream(),true);
 
-            String messageInput = input.readLine();
+
 
             Messagee mensajito = new Messagee(1,"el servidor se presenta");
 
@@ -31,6 +31,7 @@ public class ServerHilo implements Runnable{
 
             output.println(pruebaJson);
 
+            String messageInput = input.readLine();
             System.out.println(messageInput);
             this.cliente.close();
 
