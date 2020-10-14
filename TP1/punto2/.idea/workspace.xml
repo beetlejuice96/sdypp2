@@ -22,11 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c325ef7-0233-4946-a47f-57801e548027" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ServerHilo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ServerHilo.java" afterDir="false" />
-    </list>
+    <list default="true" id="1c325ef7-0233-4946-a47f-57801e548027" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../punto3" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Application.Cliente">
@@ -120,7 +116,7 @@
       <workItem from="1601519777427" duration="480000" />
       <workItem from="1602280636970" duration="119000" />
       <workItem from="1602281212726" duration="132000" />
-      <workItem from="1602374548907" duration="466000" />
+      <workItem from="1602374548907" duration="668000" />
     </task>
     <task id="LOCAL-00001" summary="primer commit del ejercicio 2">
       <created>1601434800728</created>
@@ -143,7 +139,35 @@
       <option name="project" value="LOCAL" />
       <updated>1601434890017</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cliente agregado al punto 2">
+      <created>1602375046198</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375046198</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cliente agregado al punto 2">
+      <created>1602375054722</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375054722</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Cliente agregado al punto 2">
+      <created>1602375062030</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375062030</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Cliente agregado al punto 2">
+      <created>1602375163185</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1602375163185</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,40 +187,41 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="primer commit del ejercicio 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="primer commit del ejercicio 2" />
+    <MESSAGE value="Cliente agregado al punto 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cliente agregado al punto 2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="527" y="105" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1601431662712">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="527" y="105" width="374" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1294.741@72.27.1294.741" timestamp="1601431662712" />
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602280752827">
+    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602375218218">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1602280752827" />
-    <state width="1248" height="129" key="GridCell.Tab.0.bottom" timestamp="1601434836340">
+    <state x="502" y="155" width="424" height="491" key="FileChooserDialogImpl/72.27.1294.741@72.27.1294.741" timestamp="1602375218218" />
+    <state width="1248" height="172" key="GridCell.Tab.0.bottom" timestamp="1602375220997">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="129" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1601434836340" />
-    <state width="1248" height="129" key="GridCell.Tab.0.center" timestamp="1601434836337">
+    <state width="1248" height="172" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1602375220997" />
+    <state width="1248" height="172" key="GridCell.Tab.0.center" timestamp="1602375220996">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="129" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1601434836337" />
-    <state width="1248" height="129" key="GridCell.Tab.0.left" timestamp="1601434836334">
+    <state width="1248" height="172" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1602375220996" />
+    <state width="1248" height="172" key="GridCell.Tab.0.left" timestamp="1602375220996">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="129" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1601434836334" />
-    <state width="1248" height="129" key="GridCell.Tab.0.right" timestamp="1601434836338">
+    <state width="1248" height="172" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1602375220996" />
+    <state width="1248" height="172" key="GridCell.Tab.0.right" timestamp="1602375220997">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state width="1248" height="129" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1601434836338" />
+    <state width="1248" height="172" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1602375220997" />
     <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601435833600">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
     <state x="314" y="133" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1294.741@72.27.1294.741" timestamp="1601435833600" />
-    <state x="224" y="101" width="980" height="599" key="new project wizard" timestamp="1601436396819">
+    <state x="224" y="101" width="980" height="599" key="new project wizard" timestamp="1602375211621">
       <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="224" y="101" width="980" height="599" key="new project wizard/72.27.1294.741@72.27.1294.741" timestamp="1601436396819" />
+    <state x="224" y="101" width="980" height="599" key="new project wizard/72.27.1294.741@72.27.1294.741" timestamp="1602375211621" />
   </component>
 </project>
