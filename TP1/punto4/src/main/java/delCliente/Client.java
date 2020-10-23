@@ -99,14 +99,15 @@ public class Client  {
         List<Mensaje> msjs = gson.fromJson(entrada, new TypeToken<List<Mensaje>>(){}.getType());
 
         String msg = "";
-        for (Mensaje m : msjs){
-            msg += m.toString()+"\n";
-        }
+
 
         if (msjs.isEmpty()){
             JOptionPane.showMessageDialog(null,"No hay mensajes.");
 
         }else{
+            for (Mensaje m : msjs){
+                msg += m.toString()+"\n";
+            }
             JOptionPane.showMessageDialog(null,msg,"mensaje recibido",JOptionPane.PLAIN_MESSAGE);
         }
 
