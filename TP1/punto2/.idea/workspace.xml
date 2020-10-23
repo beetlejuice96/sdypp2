@@ -23,47 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c325ef7-0233-4946-a47f-57801e548027" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../punto1/target/classes/org/example/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto1/target/classes/org/example/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto1/target/classes/org/example/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto1/target/classes/org/example/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto1/target/test-classes/org/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto1/target/test-classes/org/example/AppTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Cliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/Messagee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Messagee.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/ServerHilo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/ServerHilo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/classes/delCliente/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/classes/delCliente/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/classes/delCliente/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/classes/delCliente/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/classes/org/example/AdminMensajes.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/classes/org/example/AdminMensajes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/classes/org/example/Funcion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/classes/org/example/Funcion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/classes/org/example/Mensaje.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/classes/org/example/Mensaje.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/classes/org/example/Mensajes.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/classes/org/example/Mensajes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/classes/org/example/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/classes/org/example/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto3/target/test-classes/org/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto3/target/test-classes/org/example/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/classes/delCliente/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/classes/delCliente/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/classes/delCliente/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/classes/delCliente/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/classes/org/example/AdminMensajes.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/classes/org/example/AdminMensajes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/classes/org/example/Funcion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/classes/org/example/Funcion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/classes/org/example/Mensaje.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/classes/org/example/Mensaje.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/classes/org/example/Mensajes.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/classes/org/example/Mensajes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/classes/org/example/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/classes/org/example/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto4/target/test-classes/org/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto4/target/test-classes/org/example/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto5/target/classes/org/example/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto5/target/classes/org/example/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto5/target/classes/org/example/Remoteinterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto5/target/classes/org/example/Remoteinterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto5/target/classes/org/example/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto5/target/classes/org/example/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto5/target/classes/org/example/ServerImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto5/target/classes/org/example/ServerImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto5/target/test-classes/org/example/ServerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto5/target/test-classes/org/example/ServerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto6/target/classes/org/example/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto6/target/classes/org/example/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto6/target/classes/org/example/RemoteInt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto6/target/classes/org/example/RemoteInt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto6/target/classes/org/example/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto6/target/classes/org/example/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto6/target/classes/org/example/ServerImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto6/target/classes/org/example/ServerImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto6/target/classes/org/example/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto6/target/classes/org/example/Vector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto7/target/classes/org/example/Iejecutartarea.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto7/target/classes/org/example/Iejecutartarea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto7/target/classes/org/example/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto7/target/classes/org/example/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto7/target/classes/org/example/Tarea.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto7/target/classes/org/example/Tarea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto7/target/classes/org/example/cliente$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto7/target/classes/org/example/cliente$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto7/target/classes/org/example/cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto7/target/classes/org/example/cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto7/target/classes/org/example/ejecutarTarea.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto7/target/classes/org/example/ejecutarTarea.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../punto7/target/test-classes/org/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../punto7/target/test-classes/org/example/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +64,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../punto1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Application.Cliente">
@@ -128,6 +94,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Cliente" />
@@ -149,6 +126,7 @@
       <workItem from="1602281212726" duration="132000" />
       <workItem from="1602374548907" duration="668000" />
       <workItem from="1603451002378" duration="27000" />
+      <workItem from="1603456438836" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="primer commit del ejercicio 2">
       <created>1601434800728</created>
