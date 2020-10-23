@@ -57,7 +57,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-          <mainClass>org.example.Server</mainClass>
+          <mainClass>delCliente.Client</mainClass>
         </configuration>
       </plugin>
     </plugins>
