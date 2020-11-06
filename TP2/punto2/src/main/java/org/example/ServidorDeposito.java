@@ -26,4 +26,10 @@ public class ServidorDeposito {
 
     }
 
+    public void logeo (){
+        long mlseg = System.currentTimeMillis();
+
+    }
+
+
 }
