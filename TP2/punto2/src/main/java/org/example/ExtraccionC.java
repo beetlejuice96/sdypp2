@@ -9,7 +9,8 @@ public class ExtraccionC implements Runnable {
     private Socket cliente;
     private BufferedReader reader;
     private PrintWriter printer;
-    private BufferedWriter writer; //para escribir en el archivo
+    private BufferedWriter writer;
+
 
 
     public ExtraccionC(String cuenta, Socket cliente, ServidorExtraccion serverE){ //el servidor solo lo paso par utilizacion del logger
@@ -20,7 +21,7 @@ public class ExtraccionC implements Runnable {
         try {
             reader = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
             printer = new PrintWriter(cliente.getOutputStream(),true);
-            writer = new BufferedWriter(new FileWriter(cuenta));
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,22 +36,23 @@ public class ExtraccionC implements Runnable {
     public void run() {
         printer.println("Ingrese el monto a retirar");
         try {
-            String in = reader.readLine();
-            Double saldoActual = getSaldo();
-            Double montoExtraccion = Double.parseDouble(in);
+            synchronized (cuenta) {
+                String in = reader.readLine();
+                Double saldoActual = getSaldo();
+                Double montoExtraccion = Double.parseDouble(in);
 
 
-            if (saldoActual < montoExtraccion){
-                printer.println("El saldo es insuficiente .\n Saldo actual=>"+saldoActual);
-            }else {
-                extraer(montoExtraccion);
-                Double saldoActualizado = getSaldo();
-                printer.println("Se realizo la extraccion con exito. \n Saldo actual =>"+ saldoActualizado);
+                if (saldoActual < montoExtraccion) {
+                    printer.println("El saldo es insuficiente .\n Saldo actual=>" + saldoActual);
+                } else {
+                    extraer(montoExtraccion);
+                    Double saldoActualizado = getSaldo();
+                    printer.println("Se realizo la extraccion con exito. \n Saldo actual =>" + saldoActualizado);
+                }
+
+                //logeo la transaccion que se realizo o se quizo realizar.
+                server.logeo("Saldo anterior:" + saldoActual + " | Saldo a extraer: " + montoExtraccion + " | Nuevo saldo :" + getSaldo());
             }
-
-            //logeo la transaccion que se realizo o se quizo realizar.
-            server.logeo("Saldo anterior:"+saldoActual + " | Saldo a extraer: "+montoExtraccion+ " | Nuevo saldo :"+ getSaldo());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -67,6 +69,7 @@ public class ExtraccionC implements Runnable {
             BufferedReader freader = new BufferedReader(new FileReader(cuenta));
             String valor = freader.readLine();
             freader.close();
+            System.out.println(valor);
             Double saldo = Double.parseDouble(valor);
             return saldo;
         }catch (IOException e){
@@ -84,6 +87,7 @@ public class ExtraccionC implements Runnable {
         double nuevoSaldo = saldoActual-montoExtraccion;
         try {
             Thread.sleep(80); //serian lo 80 que se tardan en extraer.
+            writer = new BufferedWriter(new FileWriter(cuenta));
             writer.write(Double.toString(nuevoSaldo));
             writer.flush();
             //no hago el close.

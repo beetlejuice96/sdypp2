@@ -1,7 +1,5 @@
 package org.example;
 
-import org.graalvm.compiler.hotspot.nodes.VMErrorNode;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -12,8 +10,8 @@ import java.util.logging.SimpleFormatter;
 
 public class ServidorExtraccion {
 
-private String cuenta;
-private Logger logger;
+    private String cuenta;
+    private Logger logger;
 
     public ServidorExtraccion(String cuenta,String loggerName, String logFile){
         this.logger = Logger.getLogger(loggerName);
@@ -46,6 +44,8 @@ private Logger logger;
 
     }
 
+
+
     public void logeo (String msj){
         long mlseg = System.currentTimeMillis();
         msj = msj + "|| Tiempo transcurrido => "+mlseg;
@@ -54,5 +54,8 @@ private Logger logger;
 
 
     public static void main(String[] args){
+        System.out.println("Servidor de Extracciones up");
+        ServidorExtraccion se = new ServidorExtraccion("cuenta.txt","logExtracciones.txt","logger");
+        se.run();
     }
 }
