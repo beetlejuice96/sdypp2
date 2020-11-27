@@ -3,6 +3,7 @@ package server;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.ConnectException;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Properties;
 import java.util.concurrent.TimeoutException;
 
@@ -39,6 +41,8 @@ public class Main {
     private String inputQueueName;
 
     public Main(String ip, int port) throws FileNotFoundException {
+        this.port=port;
+        this.ip=ip;
         this.inputQueueName = "inputQueue";
         configAndConecctionRabbit();
         log.info("SE ESTABLECIO CORRECTAMENTE LA CONEXION CON  RABBIT");
@@ -70,8 +74,20 @@ public class Main {
     }
 
     public void runServer(){
-
-
+        try {
+            ServerSocket ss = new ServerSocket(this.port);
+            log.info("SERVER RUN");
+            while (true){
+                Socket client = ss.accept();
+                log.info("CLIENTE CONECTADO DE "+ client.getInetAddress().getCanonicalHostName()+":"+client.getPort());
+                ThreadServer ts = new ThreadServer(client,this.queueChannel,this.log,this.inputQueueName);
+                log.info("NUEVO SERVER CREADO");
+                Thread tsThread = new Thread(ts);
+                tsThread.start();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -80,7 +96,8 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        Main sv = new Main("localhost",8090);
+        Main sv = new Main("localhost",20000);
+        sv.runServer();
 
     }
 

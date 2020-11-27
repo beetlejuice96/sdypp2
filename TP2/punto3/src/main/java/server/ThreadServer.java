@@ -1,5 +1,6 @@
 package server;
 
+import Otros.Msg;
 import com.google.gson.Gson;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.MessageProperties;
@@ -9,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.net.Socket;
 
 public class ThreadServer implements Runnable {
@@ -19,12 +21,14 @@ public class ThreadServer implements Runnable {
     private String inputQueueName;
 
 
+
     public ThreadServer(Socket cliente , Channel channel, Logger log, String inputQueueName){
         this.cliente=cliente;
         this.channel = channel;
         this.log = log;
         this.inputQueueName = inputQueueName;
         this.yeison = new Gson();
+
     }
 
     public void sendMessage(String mensaje) throws IOException {
@@ -38,7 +42,11 @@ public class ThreadServer implements Runnable {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
             PrintWriter out = new PrintWriter(cliente.getOutputStream(),true);
-            sendMessage(in.readLine());
+            //Msg msj = yeison.fromJson(in.readLine(),Msg.class); asi seria para leer
+            sendMessage(in.readLine()); // aca esta enviando el gson de una.
+            log.info("servidor envio mensaje a la cola");
+
+
 
 
         } catch (IOException e) {
