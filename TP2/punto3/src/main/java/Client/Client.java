@@ -2,7 +2,6 @@ package Client;
 
 import Otros.Msg;
 import com.google.gson.Gson;
-import org.apache.logging.log4j.message.Message;
 import org.slf4j.Logger;
 
 
