@@ -68,4 +68,6 @@ public class Worker {
     public void setState(WorkerState state){
         this.state = state;
     }
+
+
 }
