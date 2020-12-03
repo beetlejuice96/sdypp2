@@ -11,6 +11,8 @@ public class ServiceProcessMessage implements Service {
         return null;
     }
 
+
+    //procesa la lista de parametros que se manda en el mensaje desde el cliente
     public Object execute(Object[] list) {
         String resultado = "";
         for (int i=0;i<list.length;i++){

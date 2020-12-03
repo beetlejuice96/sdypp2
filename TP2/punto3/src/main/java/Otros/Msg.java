@@ -9,6 +9,17 @@ public class Msg implements Serializable {
     private static final long serialVersionUID = 1L;
     private String functionName;
     public Map<String, String> parametros;
+    private String resultado;
+
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
+
 
     public Msg( String functionName){
         super();
@@ -24,7 +35,7 @@ public class Msg implements Serializable {
         this.parametros.remove(key);
     }
 
-    private String getFunctionName(){
+    public String getFunctionName(){
         return this.functionName;
     }
 

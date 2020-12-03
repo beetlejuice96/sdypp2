@@ -1,6 +1,7 @@
 package Worker;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Worker {
     private String id;
@@ -69,5 +70,17 @@ public class Worker {
         this.state = state;
     }
 
-
+    public Service findService( String name){
+        Service result = null;
+        int i = 0;
+        boolean quit = false;
+        while (!quit && (i<this.getServices().size())){
+            if (this.services.get(i).getName().equals(name)){
+                quit=true;
+                result = this.services.get(i);
+            }
+            i++;
+        }
+        return result;
+    }
 }
