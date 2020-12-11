@@ -9,7 +9,7 @@ public class Generator {
     private final static Logger log = LoggerFactory.getLogger(Generator.class);
 
     public static void main(String[] args) throws IOException {
-        int contador = 3;
+        int contador = 10;
         for (int i = 0;i<contador;i++){
             Client cliente;
             cliente= new Client("localhost",20000,log);

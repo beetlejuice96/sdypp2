@@ -31,12 +31,13 @@ public Client(String ip, int port, Logger log) throws IOException {
             //testeo mandar un mensaje al servidor y que el servidor envie mensaje a la cola.
             //String msj = "El CLIENTE:"+ idCliente+" ENVIA ESTE MENSAJE";
             Gson gson = new Gson();
-            Msg msg = new Msg("Process");// sumar seria un ejemplo nada mas
+            Msg msg = new Msg("process");// sumar seria un ejemplo nada mas
             msg.putParam("Cliente",String.valueOf(idCliente));
             msg.putParam("Nombre","Marquitos");
             String msj = gson.toJson(msg);
             System.out.println(msj);
             out.println(msj);
+
 
             /*ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(socket.getInputStream());*/

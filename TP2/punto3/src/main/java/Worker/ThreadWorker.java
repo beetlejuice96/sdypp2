@@ -23,13 +23,13 @@ public class ThreadWorker  implements Runnable{
     private static final String EXCHANGE_OUTPUT = "XCHNG-OUT";
 
 
-    public  ThreadWorker (Long id,Worker worker, Long routingkey, Msg msg, Channel queueChannel,String activeQueueName, String outputQueueName,Logger log){
+    public  ThreadWorker (Long id,Worker worker, Msg msg, Channel queueChannel,Logger log){
         this.id = id;
         this.worker=worker;
-        this.routingKey=String.valueOf(routingkey);
+        //this.routingKey=String.valueOf(routingkey); no se para que se usa por ahora
         this.queueChannel=queueChannel;
-        this.activeQueueName = activeQueueName;
-        this.outputQueueName = outputQueueName;
+        //this.activeQueueName = activeQueueName;no se para que se usa por ahora
+        //this.outputQueueName = outputQueueName;no se para que se usa por ahora
         this.tarea = msg;
         this.googlegson =new Gson();
         this.log = log;
@@ -50,12 +50,9 @@ public class ThreadWorker  implements Runnable{
             this.tarea.setResultado((String) service.execute(tarea.parametros.values().toArray()));//tal vez tenga que cambiarlo por un string
             log.info(this.worker.getId()+ "  Thread - " + this.id+ ": RESULTADO TAREA "+ this.tarea.getResultado());
             Msg respuesta = this.tarea;
+
             //en un futuro este mensaje publicarlo en una cola de respuesta y manejarlo por ahi
-
             System.out.println(respuesta.parametros+ "esta es la respuesta");
-
-
-
         }
     }
 }

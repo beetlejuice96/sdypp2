@@ -83,4 +83,26 @@ public class Worker {
         }
         return result;
     }
+
+    public void increaseCurrentLoad() {
+        this.increaseCurrentLoad(1);
+    }
+
+    private void increaseCurrentLoad(int currentLoad) {
+        this.currentLoad += currentLoad;
+        this.updatePercentageLoad();
+        this.updateState();
+    }
+
+    public void decreaseCurrentLoad() {
+        this.decreaseCurrentLoad(1);
+    }
+
+    private void decreaseCurrentLoad(int i) {
+        if (getCurrentLoad() > 0) {
+            this.currentLoad -= currentLoad;
+            this.updatePercentageLoad();
+            this.updateState();
+        }
+    }
 }

@@ -1,0 +1,34 @@
+<workers>
+    <worker id="1">
+        <services>
+            <service>Process</service>
+        </services>
+        <peakload>5</peakload>
+    </worker>
+    <worker id="2">
+        <services>
+            <service>Process</service>
+        </services>
+        <peakload>5</peakload>
+    </worker>
+    <worker id="3">
+        <services>
+            <service>Process</service>
+        </services>
+        <peakload>5</peakload>
+    </worker>
+    <worker id="4">
+        <services>
+            <service>Process</service>
+        </services>
+        <peakload>5</peakload>
+    </worker>
+    <worker id="5">
+        <services>
+            <service>Process</service>
+        </services>
+        <peakload>5</peakload>
+    </worker>
+
+
+</workers>

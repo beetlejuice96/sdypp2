@@ -8,7 +8,7 @@ public class ServiceProcessMessage implements Service {
     }
 
     public String getName() {
-        return null;
+        return this.name;
     }
 
 
@@ -19,7 +19,7 @@ public class ServiceProcessMessage implements Service {
             resultado += list[i].toString();
         }
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

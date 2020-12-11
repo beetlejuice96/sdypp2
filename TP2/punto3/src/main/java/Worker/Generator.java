@@ -33,7 +33,7 @@ public Gson gson;
 
 
 private  static final ArrayList<Integer> workers_id = new ArrayList<Integer>(Arrays.asList(
-        1,2
+        1,2,3
 ));
 
     public void ConnectRabbit(){
@@ -88,12 +88,16 @@ private  static final ArrayList<Integer> workers_id = new ArrayList<Integer>(Arr
             log.info(worker.getId()+" Trabajando...");
 
             Random r = new Random();
-
-
+            //llamar a threadWorker para que procese el mensaje.
+            ThreadWorker tw = new ThreadWorker(r.nextLong(),worker,message,queueChannel,this.log);
+            Thread th = new Thread(tw);
+            th.start();
         };
         //suscribo al worker.
         queueChannel.basicConsume(worker.getId(), true, deliverCallback, consumerTag -> {});
     }
+
+
 
 
 }
