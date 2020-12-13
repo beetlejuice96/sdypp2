@@ -2,6 +2,7 @@ package server;
 
 import Otros.Msg;
 import com.google.gson.Gson;
+import com.mchange.v2.cmdline.MissingSwitchException;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.MessageProperties;
 import org.slf4j.Logger;
@@ -19,6 +20,7 @@ public class ThreadServer implements Runnable {
     private Gson yeison; //JJAJJAJAJA
     private Logger log;
     private String inputQueueName;
+
 
 
 
@@ -43,11 +45,20 @@ public class ThreadServer implements Runnable {
             BufferedReader in = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
             PrintWriter out = new PrintWriter(cliente.getOutputStream(),true);
             //Msg msj = yeison.fromJson(in.readLine(),Msg.class); asi seria para leer
-            sendMessage(in.readLine()); // aca esta enviando el gson de una.
-            log.info("servidor envio mensaje a la cola");
+             // aca esta enviando el gson de una.
 
+            //while (true){
+                String json=in.readLine();
+                Msg msg =yeison.fromJson(json, Msg.class);
+                if (msg.getResultado().isEmpty()){
+                    sendMessage(yeison.toJson(msg));
+                    log.info("servidor envio mensaje a la cola");
+                }else{
+                    log.info(json);
+                    log.info("Respuesta llego a cliente: "+msg.getResultado());
+                }
 
-
+            //}
 
         } catch (IOException e) {
             e.printStackTrace();

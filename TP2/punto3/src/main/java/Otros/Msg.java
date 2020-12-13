@@ -25,6 +25,7 @@ public class Msg implements Serializable {
         super();
         this.functionName=functionName;
         this.parametros= new HashMap<String, String>();
+        this.resultado="";
     }
 
     public void putParam(String key, String value){

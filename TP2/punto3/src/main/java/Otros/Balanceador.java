@@ -15,6 +15,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +35,8 @@ public class Balanceador {
     private Connection queueConnection;
     private Channel queueChannel;
     public String inputQueueName = "inputQueue";
+    private String outputQueueName="outputQueue";
+
     public String notificationQueueName = "notificationQueue";
     public String inprocessQueueName = "inProcessQueue";
     public String GlobalStateQueueName = "GlobalStateQueue";
@@ -55,6 +58,10 @@ public class Balanceador {
     private ArrayList<String> workersList;//diccionario
     private Map<String, Thread> hilos; //por si las dudas.
 
+    //Datos para conectarme al socket
+    private Socket socketServer;
+
+
     public Balanceador(){
         setConnectRabbit();
         googleJson = new Gson();
@@ -66,6 +73,9 @@ public class Balanceador {
         /*levanto todos los nodos que tengo en un archivo(serian como nodos levantados por default,
         tambien los tiene el genrator de workers)
          */
+
+
+
         this.loadWorkersFile();
         this.purgeQueues();
 
@@ -74,6 +84,8 @@ public class Balanceador {
     private void purgeQueues() {
         try {
             this.queueChannel.queuePurge(this.inputQueueName);
+            this.queueChannel.queuePurge(this.outputQueueName);
+            this.queueChannel.queuePurge(this.GlobalStateQueueName);
             //todavia no puedo purgar esas otras dos ya que no existen
             //this.queueChannel.queuePurge(this.inprocessQueueName);
             //this.queueChannel.queuePurge(this.notificationQueueName);
@@ -106,6 +118,7 @@ public class Balanceador {
             this.queueChannel  = this.queueConnection.createChannel();
             //ACA DEFINE UN BASICQOS QUE NO SE QUE ES. PERO SEGURO LO NECESITE
             this.queueChannel.queueDeclare(this.inputQueueName,true,false,false,null);
+            this.queueChannel.queueDeclare(this.outputQueueName,true,false,false,null);
             //tal vez necesite una cola para el estado global.
             this.queueChannel.queueDeclare(this.GlobalStateQueueName, true, false, false, null);
             //tal vez necesite una cola para las notificaciones.
@@ -171,12 +184,15 @@ public class Balanceador {
         //int cantidadNodes = workersActivos.size();
         //int i = workersActivos.indexOf(workerActual);
         //return workersActivos.get(i+1);
+        synchronized (this.workersActivos){
+
         if(this.wActual == workersActivos.size()-1){
             this.wActual=0;
         }else{
             this.wActual++;
         }
         System.out.println(this.wActual);
+        }
         return workersActivos.get(this.wActual);
     }
 
@@ -188,7 +204,9 @@ public class Balanceador {
       //va a tener toda la logica de asignar una tarea
       Msg msg = googleJson.fromJson(new String(Delivery.getBody(),"UTF-8"),Msg.class);
       try {
+
           this.workerActual =  this.getNextWorker();
+
           msg.putParam("to-worker",this.workerActual.getId());
           log.info("[ListenInputQueue] Envia el mensaje a un worker ");
 
@@ -209,6 +227,45 @@ public class Balanceador {
       }
     };
 
+    private DeliverCallback listenOutputQueue = (consumertag, delivery)->{
+        //log.info("[ListenOutput] RESPUESTA RECIBIDA DE : "+ delivery.getEnvelope().getRoutingKey());
+        //log.info(new String(delivery.getBody(), StandardCharsets.UTF_8));
+        try{
+            this.socketServer = new Socket("localhost", 20000);
+            PrintWriter out = new PrintWriter(socketServer.getOutputStream(),true);
+            out.println(new String(delivery.getBody(),"UTF-8"));
+            log.info("[balanceador] se envio el mensaje al cliente correctamente");
+            socketServer.close();
+            //en este momento tengo que hacer el descuento de tareas asignadas a un worker
+            Msg msg = googleJson.fromJson(new String(delivery.getBody(),"UTF-8"),Msg.class);
+            Worker w = this.findWorker(msg.parametros.get("to-worker"));
+            //descuento una tarea al worker ya que se esta mandando la respuesta.
+            w.decreaseCurrentLoad();
+            this.decreaseGlobalCurrentLoad();
+
+            //tambien mandar a recalcular el estado global
+            this.updateGlobal();
+            //luego meter toda la logica de levantar y bajar workers
+
+
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+        Msg msg = googleJson.fromJson(new String(delivery.getBody(),"UTF-8"),Msg.class);
+
+
+    };
+
+    private DeliverCallback listenGlobalStatequeue=(consumertag,delivery)->{
+        GlobalState gs = googleJson.fromJson(new String(delivery.getBody(),"UTF-8"),GlobalState.class);
+        if (gs.equals(GlobalState.GLOBAL_IDLE)){
+            System.out.println("entro al estado de global ide");
+            this.dropWorker();
+        }
+    };
+
     //incrementa la carga actual con lo que se pasa por parametro
     private void increaseGlobalCurrentLoad(int currentLoad) {
         this.cargarActualGlobal += currentLoad;
@@ -220,6 +277,65 @@ public class Balanceador {
     //incrementa la carga maxima global
     private void increaseGlobalMaxLoad(int maxLoad) {
         this.cargaMaxGlobal += maxLoad;
+    }
+
+    private void decreaseGlobalCurrentLoad(int currentLoad) {
+        this.cargarActualGlobal = (this.cargarActualGlobal > 0) ? this.cargarActualGlobal - currentLoad : 0;
+    }
+    public void decreaseGlobalCurrentLoad() {
+        this.decreaseGlobalCurrentLoad(1);
+    }
+
+    //busca un worker
+    public Worker findWorker(String idWorker){
+        int pos=-1;
+        synchronized (this.workersActivos){
+            for (int i =0; i<this.workersActivos.size();i++){
+                if (this.workersActivos.get(i).getId().equals(idWorker)){
+                    return workersActivos.get(i);
+
+                }
+            }
+        }
+        return null;
+    }
+
+    // esto va a checkear si hay un ocioso y los va a bajar
+    public void dropWorker(){
+        int pos = -1;
+        Worker wRemove = null;
+        synchronized (this.workersActivos){
+            for(int i=0; i<this.workersActivos.size()-1;i++){
+                //System.out.println(this.workersActivos.get(i).getCurrentLoad());
+                if ((pos==-1)&&(this.workersActivos.get(i).getCurrentLoad()==0)){
+                    pos=i;
+                    wRemove = this.workersActivos.get(i);
+                    System.out.println("entrooooooo");
+                }
+            }
+
+            if ((this.wActual==pos)&&(pos!=-1)){
+                this.workerActual=this.getNextWorker();
+                log.info("[dropWorker] se dropeo el worker "+ wRemove.getId()+ " su posicion era: "+pos);
+
+                if (wRemove!=null) {
+                    this.workersActivos.remove(wRemove);
+
+                }
+                log.info("[dropWorker] se actualizo el tamaño de la cola, ahora es:"+this.workersActivos.size());
+            }else if (pos!=-1){
+                log.info("[dropWorker] se dropeo el worker "+ wRemove.getId()+ " su posicion era: "+pos);
+
+                if (wRemove!=null) {
+                    this.workersActivos.remove(wRemove);
+                }
+                log.info("[dropWorker] se actualizo el tamaño de la cola, ahora es:"+this.workersActivos.size());
+            }else{
+                log.info("[dropWorker] no se dropeo el worker porque todos tienen carga");
+            }
+        }
+
+
     }
 
     //actualizo el estado global(normalmente se usa cuando se incrementa o decrementa la carga actual)
@@ -248,6 +364,8 @@ public class Balanceador {
         log.info(" Balanceador Started");
         try {
             this.queueChannel.basicConsume(inputQueueName, true, listenInputQueue, consumerTag -> {});
+            this.queueChannel.basicConsume(outputQueueName, true, listenOutputQueue, consumerTag -> {});
+            this.queueChannel.basicConsume(GlobalStateQueueName, true, listenGlobalStatequeue, consumerTag -> {});
         } catch (IOException e) {
             e.printStackTrace();
         }

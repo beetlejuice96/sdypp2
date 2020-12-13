@@ -6,11 +6,19 @@ import com.rabbitmq.client.*;
 import org.fusesource.mqtt.codec.PUBLISH;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import server.ThreadServer;
 
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
@@ -29,7 +37,11 @@ private Connection queueConnection;
 private Channel queueChannel;
 public String myNodeQueueName;
 public static final String RABBIT_CONFIG_PROPERTIES= "src/main/java/resources/rabbit.properties";
+public static final String WORKER_CONFIG = "src/main/java/resources/workers.xml";
 public Gson gson;
+private DocumentBuilder builder;
+private Document documentWorkers;
+public NodeList elementos;
 
 
 private  static final ArrayList<Integer> workers_id = new ArrayList<Integer>(Arrays.asList(
@@ -62,6 +74,47 @@ private  static final ArrayList<Integer> workers_id = new ArrayList<Integer>(Arr
     public static void main(String[] args) throws IOException {
         Generator generator = new Generator();
         generator.createWorkers();
+        generator.runGenerator();
+    }
+
+    private void runGenerator() {
+
+            try {
+                /*DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                this.builder = factory.newDocumentBuilder();
+                this.documentWorkers =builder.parse(new File(WORKER_CONFIG));
+                this.documentWorkers.getDocumentElement().normalize();
+                this.elementos = documentWorkers.getElementsByTagName("worker");*/
+                ServerSocket ss = new ServerSocket(30000);
+                log.info("SERVER GENERADOR DE WORKERS RUN");
+                while (true){
+                    Socket client = ss.accept();
+                    //log.info("RECIBIENDO PETICION DEL BALANCEADOR "+ client.getInetAddress().getCanonicalHostName()+":"+client.getPort());
+                    BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+                    PrintWriter out = new PrintWriter(client.getOutputStream(),true);
+                    String json=in.readLine();
+                    Msg msg = gson.fromJson(json,Msg.class);
+                    switch (msg.parametros.get("metodo")){
+                        case "upWorker":
+                            this.upWorker(msg.parametros.get("idWorker"));
+                            break;
+                        case "downWorker":
+                            this.downWorker(msg.parametros.get("idWorker"));
+                            break;
+                    }
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+    }
+
+    private void downWorker(String idWorker) throws IOException {
+        this.queueChannel.queueDelete(idWorker);
+        this.log.info("LA QUEUE "+idWorker+" FUE REMOVIDA EXITOSAMENTE");
+    }
+
+    private void upWorker(String idWorker) {
     }
 
     //crea los workers que tenemos cargados en una lista(para prueba)

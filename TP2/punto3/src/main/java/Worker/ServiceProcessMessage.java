@@ -16,7 +16,7 @@ public class ServiceProcessMessage implements Service {
     public Object execute(Object[] list) {
         String resultado = "";
         for (int i=0;i<list.length;i++){
-            resultado += list[i].toString();
+            resultado += list[i].toString()+" ";
         }
         try {
             Thread.sleep(10000);
