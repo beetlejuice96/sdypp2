@@ -6,4 +6,4 @@ cambios que debo realizar:
 * hacer una clase padre Accion del cual extiendan depositoC y extraccioC.
 * hacer una interfaz de la cual extiendan los servidores.
 
-pd:estos estos cambios van de la mano, deben realizarse ls dos en conjunto.
+pd:estos estos cambios van de la mano, deben realizarse los dos en conjunto.

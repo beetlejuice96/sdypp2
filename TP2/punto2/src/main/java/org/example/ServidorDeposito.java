@@ -27,7 +27,7 @@ public class ServidorDeposito {
 
     public static void main(String [] args){
         System.out.println("Servidor de Depositos up");
-        ServidorDeposito sd = new ServidorDeposito("C:\\Users\\dilan\\IdeaProjects\\ssydp2\\TP2\\cuenta.txt","logDepositos.txt","logger");
+        ServidorDeposito sd = new ServidorDeposito("cuenta.txt","logDepositos.txt","logger");
         sd.run();
 
     }
